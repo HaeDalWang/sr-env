@@ -55,7 +55,7 @@ RUN curl -LO https://github.com/kubecolor/kubecolor/releases/download/v0.4.0/kub
 # kubectx 설치
 RUN curl -LO https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_arm64.tar.gz && \
     tar -zxvf kubectx_v0.9.5_linux_arm64.tar.gz && \
-    mv kubectx /usr/local/bin/kubectx && \
+    mv kubectx /usr/local/bin/kubectl-ctx && \
     rm kubectx_v0.9.5_linux_arm64.tar.gz
 
 # krew 설치 (kubectl 플러그인 관리 도구)
@@ -100,7 +100,7 @@ RUN echo 'source /usr/local/bin/kube-ps1.sh' >> /etc/bash.bashrc && \
     echo 'complete -C "/usr/local/bin/aws_completer" aws' >> /root/.bashrc && \
     echo "PS1='[\u@\h \W \$(kube_ps1)]\\$ '" >> /root/.bashrc && \
     echo 'alias karpenter-node-view="eks-node-viewer"' >> /root/.bashrc && \
-    echo 'export LANG=C.UTF-8' >> /.bashrc
+    echo 'export LANG=C.UTF-8' >> /root/.bashrc
 
 # 기본 쉘을 bash로 설정
 WORKDIR /root
