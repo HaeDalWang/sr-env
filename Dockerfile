@@ -70,10 +70,15 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv
     ./aws/install && \
     rm awscliv2.zip
 
-# kube-ps1 설치 (kubectl 자동완성)
+# kube-ps1 설치 (kubectl context,ns 보여줌)
 RUN git clone https://github.com/jonmosco/kube-ps1.git /tmp/kube-ps1 && \
     cp /tmp/kube-ps1/kube-ps1.sh /usr/local/bin && \
     rm -rf /tmp/kube-ps1
+
+# argocd cli 설치
+RUN curl -sSL -o argocd-linux-arm64 https://github.com/argoproj/argo-cd/releases/download/v2.13.2/argocd-linux-arm64 && \
+    install -m 555 argocd-linux-arm64 /usr/local/bin/argocd && \
+    rm argocd-linux-arm64
 
 # eks-node-view
 RUN curl -LO https://github.com/awslabs/eks-node-viewer/releases/download/v0.7.1/eks-node-viewer_Linux_arm64 && \
