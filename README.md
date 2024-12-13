@@ -5,12 +5,12 @@
 ## 빠른 시작
 
 ```
-docker run -d --name env-remote svvwac98/sr-env:1.31
+docker run -d --name env-remote svvwac98/sr-env:1.31v2
 ```
 
 aws config 또는 kubeconfig 등 마운트가 필요할 경우 아래와 같이 예시
 ```
-docker run -d -v /Users/seungdo/salt/ezl/aws:/root/.aws --name env-remote svvwac98/sr-env:1.31
+docker run -d -v /Users/seungdo/salt/ezl/aws:/root/.aws --name env-remote svvwac98/sr-env:1.31v2
 ```
 
 ## 빌드 하여 사용
@@ -20,7 +20,7 @@ docker build -t <name> .
 ```
 
 ```
-docker run --name remtoe <name>
+docker run --name remote <name>
 ```
 
 ## 기본적으로 설치된 중요 도구 항목
